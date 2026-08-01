@@ -6,10 +6,9 @@
 
 <title>Happy Friendship Day ❤️</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
 <style>
 
@@ -17,41 +16,89 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+font-family:Poppins,sans-serif;
 }
 
 body{
-
 height:100vh;
 overflow:hidden;
-
 display:flex;
 justify-content:center;
 align-items:center;
-
-background:linear-gradient(135deg,#ffd6e8,#fff7e8,#e6f7ff);
-
+background:linear-gradient(135deg,#ffd6e8,#fff6e5,#dff8ff);
 }
 
-.container{
-
+.card{
 text-align:center;
-
+animation:fade 2s;
 }
 
 h1{
-
-font-size:3rem;
+font-size:52px;
 color:#ff4f87;
-
 }
 
-p{
-
+#text{
 margin-top:20px;
-font-size:1.2rem;
+font-size:24px;
 color:#555;
+min-height:40px;
+}
 
+.hand{
+font-size:90px;
+margin-top:50px;
+animation:wave 2s infinite;
+}
+
+.band{
+font-size:60px;
+position:relative;
+left:-300px;
+animation:tie 3s forwards;
+animation-delay:2s;
+}
+
+.final{
+opacity:0;
+margin-top:30px;
+font-size:30px;
+color:#ff2d6f;
+font-weight:bold;
+animation:show 2s forwards;
+animation-delay:5s;
+}
+
+.small{
+font-size:20px;
+margin-top:15px;
+font-weight:300;
+}
+
+@keyframes fade{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+@keyframes wave{
+0%{transform:rotate(0deg);}
+50%{transform:rotate(8deg);}
+100%{transform:rotate(0deg);}
+}
+
+@keyframes tie{
+0%{
+left:-300px;
+}
+100%{
+left:0px;
+}
+}
+
+@keyframes show{
+to{
+opacity:1;
+}
 }
 
 </style>
@@ -60,13 +107,77 @@ color:#555;
 
 <body>
 
-<div class="container">
+<div class="card">
 
 <h1>Hi Poorvi ❤️</h1>
 
-<p>Your surprise is loading...</p>
+<div id="text"></div>
+
+<div class="band">🎀</div>
+
+<div class="hand">🤝</div>
+
+<div class="final">
+
+Happy Friendship Day ❤️
+
+<div class="small">
+
+Thank you for being my comfort,
+my chaos partner,
+and one of the best parts of my life.
+
+I'm lucky to have you. 🌸
 
 </div>
+
+</div>
+
+</div>
+
+<script>
+
+const messages=[
+
+"Someone has a surprise for you...✨",
+"Loading friendship...",
+"Tying the friendship band...🎀"
+
+];
+
+let i=0;
+
+const box=document.getElementById("text");
+
+function next(){
+
+if(i<messages.length){
+
+box.innerHTML=messages[i];
+
+i++;
+
+setTimeout(next,1700);
+
+}
+
+}
+
+next();
+
+setTimeout(()=>{
+
+confetti({
+
+particleCount:250,
+spread:120,
+origin:{y:.55}
+
+});
+
+},5000);
+
+</script>
 
 </body>
 </html>
