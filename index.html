@@ -1,237 +1,766 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Happy Friendship Day ❤️</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins,sans-serif;
-}
-
-body{
-
-margin:0;
-overflow:hidden;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-font-family:Poppins,sans-serif;
-background:#ffd8ea;
-
-}
-
-.sky{
-
-position:relative;
-width:100%;
-height:100%;
-overflow:hidden;
-
-background:linear-gradient(
-180deg,
-#ffd7ea,
-#fff4f8,
-#fffaf0
-);
-
-}
-
-.content{
-
-position:absolute;
-
-left:50%;
-top:50%;
-
-transform:translate(-50%,-50%);
-
-text-align:center;
-
-animation:fadeIn 2s;
-
-}
-
-h1{
-
-font-size:4rem;
-
-color:#ff4d88;
-
-}
-
-p{
-
-font-size:1.4rem;
-
-margin-top:15px;
-
-color:#666;
-
-}
-
-.cloud{
-
-position:absolute;
-
-background:white;
-
-border-radius:100px;
-
-opacity:.8;
-
-}
-
-.cloud::before{
-
-content:"";
-
-position:absolute;
-
-background:white;
-
-border-radius:50%;
-
-width:60px;
-
-height:60px;
-
-left:20px;
-
-top:-25px;
-
-}
-
-.cloud::after{
-
-content:"";
-
-position:absolute;
-
-background:white;
-
-border-radius:50%;
-
-width:80px;
-
-height:80px;
-
-right:20px;
-
-top:-40px;
-
-}
-
-.cloud1{
-
-width:180px;
-
-height:70px;
-
-top:80px;
-
-left:-200px;
-
-animation:moveCloud 35s linear infinite;
-
-}
-
-.cloud2{
-
-width:250px;
-
-height:90px;
-
-top:220px;
-
-left:-250px;
-
-animation:moveCloud 45s linear infinite;
-
-animation-delay:5s;
-
-}
-
-.cloud3{
-
-width:160px;
-
-height:60px;
-
-top:420px;
-
-left:-180px;
-
-animation:moveCloud 28s linear infinite;
-
-animation-delay:12s;
-
-}
-
-@keyframes moveCloud{
-
-from{
-
-transform:translateX(0);
-
-}
-
-to{
-
-transform:translateX(1700px);
-
-}
-
-}
-
-@keyframes fadeIn{
-
-from{
-
-opacity:0;
-transform:translate(-50%,-40%);
-
-}
-
-to{
-
-opacity:1;
-transform:translate(-50%,-50%);
-
-}
-
-}
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friendship Day Surprise for Poorvi ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ffeef8 0%, #e8f5ff 100%);
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background: linear-gradient(180deg, #ffe8f5 0%, #fff0e8 50%, #e8f5ff 100%);
+        }
+
+        /* Scene Styles */
+        .scene {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        .scene.active {
+            opacity: 1;
+        }
+
+        /* Scene 1 - Sky Background */
+        #scene1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, #ffd9e8 0%, #ffe8f5 50%, #e8f0ff 100%);
+        }
+
+        .sky-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cloud {
+            position: absolute;
+            opacity: 0.7;
+            filter: blur(2px);
+        }
+
+        .cloud1 { animation: float 20s infinite ease-in-out; }
+        .cloud2 { animation: float 25s infinite ease-in-out 3s; }
+        .cloud3 { animation: float 22s infinite ease-in-out 6s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateX(0px); }
+            50% { transform: translateX(30px); }
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ffd700;
+            border-radius: 50%;
+            animation: twinkle 2s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+
+        .text-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px;
+            z-index: 10;
+        }
+
+        .typing-text {
+            font-size: clamp(24px, 5vw, 48px);
+            color: #ff69a8;
+            font-weight: 600;
+            letter-spacing: 1px;
+            min-height: 60px;
+            margin: 20px 0;
+        }
+
+        .greeting-text {
+            font-size: clamp(32px, 7vw, 56px);
+            color: #ff1493;
+            font-weight: 700;
+            margin: 20px 0;
+            min-height: 70px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards 4s;
+        }
+
+        .subtext {
+            font-size: clamp(18px, 4vw, 28px);
+            color: #d946a8;
+            font-weight: 500;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards 5s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scene 2 - Button */
+        #scene2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, #ffd9e8 0%, #ffe8f5 50%, #e8f0ff 100%);
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .tap-button {
+            padding: 20px 50px;
+            font-size: clamp(18px, 4vw, 28px);
+            background: linear-gradient(135deg, #ff69a8 0%, #ff1493 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 20px rgba(255, 20, 147, 0.4);
+            transition: all 0.3s ease;
+            animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .tap-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(255, 20, 147, 0.6);
+        }
+
+        .tap-button:active {
+            transform: scale(0.98);
+        }
+
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Scene 3 - Hands */
+        #scene3 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, #ffd9e8 0%, #ffe8f5 50%, #e8f0ff 100%);
+        }
+
+        .hands-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        svg.hand-left {
+            animation: slideInLeft 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        svg.hand-right {
+            animation: slideInRight 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-200px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(200px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Scene 4 - Friendship Band */
+        #scene4 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, #ffd9e8 0%, #ffe8f5 50%, #e8f0ff 100%);
+        }
+
+        .band-scene {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .band-sparkles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .band-sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            animation: sparkleFloat 2s ease-out forwards;
+        }
+
+        @keyframes sparkleFloat {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--tx), var(--ty)) scale(0);
+            }
+        }
+
+        /* Scene 5 - Confetti */
+        #scene5 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, #ffd9e8 0%, #ffe8f5 50%, #e8f0ff 100%);
+            overflow: hidden;
+        }
+
+        .confetti {
+            position: fixed;
+            pointer-events: none;
+            animation: confettiFall 3s ease-in forwards;
+        }
+
+        @keyframes confettiFall {
+            to {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .heart-float {
+            position: fixed;
+            font-size: 40px;
+            animation: heartFloat 4s ease-in forwards;
+            pointer-events: none;
+        }
+
+        @keyframes heartFloat {
+            0% {
+                opacity: 1;
+                transform: translateY(0) translateX(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-200px) translateX(var(--offset, 0px));
+            }
+        }
+
+        /* Scene 6 - Letter */
+        #scene6 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, #ffd9e8 0%, #ffe8f5 50%, #e8f0ff 100%);
+            padding: 20px;
+        }
+
+        .letter {
+            background: linear-gradient(135deg, #fff5fb 0%, #f0f8ff 100%);
+            border-radius: 20px;
+            padding: clamp(30px, 8vw, 50px);
+            max-width: 500px;
+            box-shadow: 0 20px 60px rgba(255, 20, 147, 0.2);
+            animation: letterAppear 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border: 2px solid #ffe8f5;
+        }
+
+        @keyframes letterAppear {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) rotateX(20deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotateX(0);
+            }
+        }
+
+        .letter-title {
+            font-size: clamp(24px, 5vw, 32px);
+            color: #ff1493;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .letter-content {
+            font-size: clamp(14px, 3vw, 18px);
+            color: #d946a8;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        .letter-line {
+            margin: 12px 0;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Scene 7 - Replay */
+        #scene7 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            background: linear-gradient(180deg, #ffd9e8 0%, #ffe8f5 50%, #e8f0ff 100%);
+        }
+
+        .final-message {
+            font-size: clamp(24px, 5vw, 36px);
+            color: #ff1493;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .replay-button {
+            padding: 18px 45px;
+            font-size: clamp(16px, 3.5vw, 24px);
+            background: linear-gradient(135deg, #ff69a8 0%, #ff1493 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 20px rgba(255, 20, 147, 0.4);
+            transition: all 0.3s ease;
+            animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .replay-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(255, 20, 147, 0.6);
+        }
+
+        .replay-button:active {
+            transform: scale(0.98);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .text-overlay {
+                padding: 30px 20px;
+            }
+
+            .letter {
+                padding: clamp(25px, 6vw, 40px);
+            }
+        }
+
+        /* Performance optimization */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <!-- Scene 1: Sky with clouds and typing text -->
+        <div class="scene active" id="scene1">
+            <div class="sky-container">
+                <!-- Clouds SVG -->
+                <svg class="cloud cloud1" viewBox="0 0 100 50" width="150" height="75" style="left: 10%; top: 15%;">
+                    <defs>
+                        <linearGradient id="cloudGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
+                            <stop offset="100%" style="stop-color:#ffe8f5;stop-opacity:0.6" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M 30 30 Q 15 15 5 25 Q 0 20 0 30 Q 0 40 10 45 L 90 45 Q 100 45 100 35 Q 100 25 85 20 Q 80 15 70 18 Q 60 5 45 10 Q 35 5 30 30" fill="url(#cloudGrad1)" />
+                </svg>
 
-<div class="sky">
+                <svg class="cloud cloud2" viewBox="0 0 100 50" width="180" height="90" style="right: 5%; top: 40%;">
+                    <defs>
+                        <linearGradient id="cloudGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.7" />
+                            <stop offset="100%" style="stop-color:#e8f0ff;stop-opacity:0.5" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M 30 30 Q 15 15 5 25 Q 0 20 0 30 Q 0 40 10 45 L 90 45 Q 100 45 100 35 Q 100 25 85 20 Q 80 15 70 18 Q 60 5 45 10 Q 35 5 30 30" fill="url(#cloudGrad2)" />
+                </svg>
 
-<div class="cloud cloud1"></div>
-<div class="cloud cloud2"></div>
-<div class="cloud cloud3"></div>
+                <svg class="cloud cloud3" viewBox="0 0 100 50" width="160" height="80" style="left: 50%; top: 25%;">
+                    <defs>
+                        <linearGradient id="cloudGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.75" />
+                            <stop offset="100%" style="stop-color:#fff0e8;stop-opacity:0.55" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M 30 30 Q 15 15 5 25 Q 0 20 0 30 Q 0 40 10 45 L 90 45 Q 100 45 100 35 Q 100 25 85 20 Q 80 15 70 18 Q 60 5 45 10 Q 35 5 30 30" fill="url(#cloudGrad3)" />
+                </svg>
 
-<div class="content">
+                <!-- Sparkles -->
+                <div class="sparkle" style="left: 15%; top: 20%; animation-delay: 0s;"></div>
+                <div class="sparkle" style="left: 75%; top: 35%; animation-delay: 0.5s;"></div>
+                <div class="sparkle" style="left: 25%; top: 60%; animation-delay: 1s;"></div>
+                <div class="sparkle" style="left: 85%; top: 65%; animation-delay: 1.5s;"></div>
+                <div class="sparkle" style="left: 50%; top: 15%; animation-delay: 0.8s;"></div>
+            </div>
 
-<h1>Hi Poorvi ❤️</h1>
+            <!-- Typing text overlay -->
+            <div class="text-overlay">
+                <div class="typing-text" id="typingText"></div>
+                <div class="greeting-text">Hi Poorvi ❤️</div>
+                <div class="subtext">I made something for you...</div>
+            </div>
+        </div>
 
-<p>I have a little surprise for you...</p>
+        <!-- Scene 2: Button -->
+        <div class="scene" id="scene2">
+            <div class="button-container">
+                <div style="text-align: center; font-size: clamp(20px, 4vw, 32px); color: #ff1493; font-weight: 600;">
+                    Ready for a surprise?
+                </div>
+                <button class="tap-button" id="tapButton">Tap to Begin ✨</button>
+            </div>
+        </div>
 
-</div>
+        <!-- Scene 3: Hands -->
+        <div class="scene" id="scene3">
+            <div class="hands-container">
+                <!-- My Hand (Left) -->
+                <svg class="hand-left" viewBox="0 0 100 150" width="80" height="120">
+                    <defs>
+                        <linearGradient id="handGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#f5c89a;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#e8a87c;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Palm -->
+                    <ellipse cx="50" cy="90" rx="30" ry="40" fill="url(#handGrad1)" />
+                    <!-- Thumb -->
+                    <ellipse cx="25" cy="70" rx="12" ry="20" fill="url(#handGrad1)" />
+                    <!-- Fingers -->
+                    <rect x="35" y="20" width="10" height="70" rx="5" fill="url(#handGrad1)" />
+                    <rect x="48" y="15" width="10" height="75" rx="5" fill="url(#handGrad1)" />
+                    <rect x="61" y="18" width="10" height="72" rx="5" fill="url(#handGrad1)" />
+                    <rect x="74" y="25" width="10" height="65" rx="5" fill="url(#handGrad1)" />
+                </svg>
 
-</div>
+                <!-- Poorvi's Hand (Right) -->
+                <svg class="hand-right" viewBox="0 0 100 150" width="80" height="120" style="transform: scaleX(-1);">
+                    <defs>
+                        <linearGradient id="handGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ffc9d4;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#ffb3c6;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Palm -->
+                    <ellipse cx="50" cy="90" rx="30" ry="40" fill="url(#handGrad2)" />
+                    <!-- Thumb -->
+                    <ellipse cx="25" cy="70" rx="12" ry="20" fill="url(#handGrad2)" />
+                    <!-- Fingers -->
+                    <rect x="35" y="20" width="10" height="70" rx="5" fill="url(#handGrad2)" />
+                    <rect x="48" y="15" width="10" height="75" rx="5" fill="url(#handGrad2)" />
+                    <rect x="61" y="18" width="10" height="72" rx="5" fill="url(#handGrad2)" />
+                    <rect x="74" y="25" width="10" height="65" rx="5" fill="url(#handGrad2)" />
+                </svg>
+            </div>
+        </div>
 
+        <!-- Scene 4: Friendship Band -->
+        <div class="scene" id="scene4">
+            <div class="band-scene">
+                <svg viewBox="0 0 400 200" width="400" height="200">
+                    <defs>
+                        <linearGradient id="bandGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#ff69a8;stop-opacity:1" />
+                            <stop offset="25%" style="stop-color:#ffa8d8;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#ffd9e8;stop-opacity:1" />
+                            <stop offset="75%" style="stop-color:#ffa8d8;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#ff69a8;stop-opacity:1" />
+                        </linearGradient>
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <!-- Wrist (light skin) -->
+                    <ellipse cx="200" cy="100" rx="60" ry="50" fill="#f5c89a" />
+                    <!-- Friendship band wrapped -->
+                    <path d="M 150 95 Q 140 80 140 100 Q 140 120 150 130" 
+                          stroke="url(#bandGrad)" stroke-width="12" fill="none" stroke-linecap="round" 
+                          filter="url(#glow)" stroke-dasharray="100" stroke-dashoffset="0"
+                          style="animation: bandWrap 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;" />
+                    <path d="M 150 130 Q 160 145 200 148" 
+                          stroke="url(#bandGrad)" stroke-width="12" fill="none" stroke-linecap="round" 
+                          filter="url(#glow)" stroke-dasharray="80" stroke-dashoffset="80"
+                          style="animation: bandWrap 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards 0.3s;" />
+                    <!-- Knot -->
+                    <circle cx="200" cy="148" r="8" fill="url(#bandGrad)" filter="url(#glow)" 
+                            style="animation: knotBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards 1.8s;" />
+                </svg>
+                <div class="band-sparkles" id="bandSparkles"></div>
+            </div>
+        </div>
+
+        <!-- Scene 5: Confetti and Hearts -->
+        <div class="scene" id="scene5">
+            <div style="position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 48px; font-weight: 700; color: #ff1493;">
+                🎉
+            </div>
+        </div>
+
+        <!-- Scene 6: Letter -->
+        <div class="scene" id="scene6">
+            <div class="letter">
+                <div class="letter-title">Happy Friendship Day, Poorvi ❤️</div>
+                <div class="letter-content">
+                    <div class="letter-line" style="animation-delay: 0.2s;">Thank you for every laugh,</div>
+                    <div class="letter-line" style="animation-delay: 0.4s;">every silly conversation,</div>
+                    <div class="letter-line" style="animation-delay: 0.6s;">every memory,</div>
+                    <div class="letter-line" style="animation-delay: 0.8s;">and simply for being you.</div>
+                    <div class="letter-line" style="animation-delay: 1s; margin-top: 20px;">I don't know what the future holds,</div>
+                    <div class="letter-line" style="animation-delay: 1.2s;">but I hope you'll always be</div>
+                    <div class="letter-line" style="animation-delay: 1.4s;">one of my favourite people.</div>
+                    <div class="letter-line" style="animation-delay: 1.6s; margin-top: 20px;">You're stuck with me forever. 🤍</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 7: Replay -->
+        <div class="scene" id="scene7">
+            <div class="final-message">Thank you for being my friend 💕</div>
+            <button class="replay-button" id="replayButton">Replay ✨</button>
+        </div>
+    </div>
+
+    <script>
+        // Animation state
+        let currentScene = 1;
+        const totalScenes = 7;
+        let animationRunning = false;
+
+        // Scene management
+        function showScene(sceneNumber) {
+            document.querySelectorAll('.scene').forEach(scene => {
+                scene.classList.remove('active');
+            });
+            document.getElementById(`scene${sceneNumber}`).classList.add('active');
+            currentScene = sceneNumber;
+        }
+
+        // Typing animation
+        async function typeText(element, texts) {
+            element.innerHTML = '';
+            for (let text of texts) {
+                for (let char of text) {
+                    element.textContent += char;
+                    await new Promise(resolve => setTimeout(resolve, 50));
+                }
+                await new Promise(resolve => setTimeout(resolve, 800));
+                element.textContent = '';
+            }
+        }
+
+        // Keyframe animations
+        const styles = document.createElement('style');
+        styles.innerHTML = `
+            @keyframes bandWrap {
+                from { stroke-dashoffset: 100; }
+                to { stroke-dashoffset: 0; }
+            }
+            @keyframes knotBounce {
+                0% { transform: scale(0); }
+                70% { transform: scale(1.2); }
+                100% { transform: scale(1); }
+            }
+        `;
+        document.head.appendChild(styles);
+
+        // Start Scene 1: Typing animation and transition
+        async function startScene1() {
+            showScene(1);
+            await typeText(
+                document.getElementById('typingText'),
+                ['Some people become family...', '...without sharing the same blood.']
+            );
+            await new Promise(resolve => setTimeout(resolve, 1500));
+            startScene2();
+        }
+
+        // Scene 2: Show button
+        function startScene2() {
+            showScene(2);
+        }
+
+        // Scene 3: Hands animation
+        async function startScene3() {
+            showScene(3);
+            await new Promise(resolve => setTimeout(resolve, 1500));
+            startScene4();
+        }
+
+        // Scene 4: Friendship band animation
+        async function startScene4() {
+            showScene(4);
+            
+            // Create sparkles
+            const sparklesContainer = document.getElementById('bandSparkles');
+            sparklesContainer.innerHTML = '';
+            for (let i = 0; i < 12; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'band-sparkle';
+                const angle = (i / 12) * Math.PI * 2;
+                const distance = 80 + Math.random() * 40;
+                sparkle.style.left = '200px';
+                sparkle.style.top = '100px';
+                sparkle.style.background = ['#ff69a8', '#ffa8d8', '#ffd9e8', '#ffd700'][Math.floor(Math.random() * 4)];
+                sparkle.style.setProperty('--tx', Math.cos(angle) * distance + 'px');
+                sparkle.style.setProperty('--ty', Math.sin(angle) * distance + 'px');
+                sparkle.style.animationDelay = (2 + i * 0.05) + 's';
+                sparklesContainer.appendChild(sparkle);
+            }
+
+            await new Promise(resolve => setTimeout(resolve, 3500));
+            startScene5();
+        }
+
+        // Scene 5: Confetti and hearts
+        async function startScene5() {
+            showScene(5);
+            
+            // Create confetti
+            for (let i = 0; i < 30; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.textContent = ['🎉', '🎊', '✨', '💕', '💗', '🌸'][Math.floor(Math.random() * 6)];
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = '-20px';
+                confetti.style.fontSize = (20 + Math.random() * 30) + 'px';
+                confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                document.getElementById('scene5').appendChild(confetti);
+            }
+
+            // Create floating hearts
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart-float';
+                heart.textContent = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.bottom = '-40px';
+                heart.style.setProperty('--offset', (Math.random() - 0.5) * 200 + 'px');
+                heart.style.animationDelay = Math.random() * 1 + 's';
+                document.getElementById('scene5').appendChild(heart);
+            }
+
+            await new Promise(resolve => setTimeout(resolve, 5000));
+            startScene6();
+        }
+
+        // Scene 6: Letter
+        async function startScene6() {
+            showScene(6);
+            await new Promise(resolve => setTimeout(resolve, 4000));
+            startScene7();
+        }
+
+        // Scene 7: Replay button
+        function startScene7() {
+            showScene(7);
+            animationRunning = false;
+        }
+
+        // Tap button handler
+        document.getElementById('tapButton').addEventListener('click', () => {
+            if (!animationRunning) {
+                animationRunning = true;
+                startScene3();
+            }
+        });
+
+        // Replay button handler
+        document.getElementById('replayButton').addEventListener('click', () => {
+            if (!animationRunning) {
+                animationRunning = true;
+                startScene1();
+            }
+        });
+
+        // Start the experience
+        window.addEventListener('load', () => {
+            startScene1();
+        });
+    </script>
 </body>
 </html>
