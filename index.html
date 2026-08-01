@@ -31,16 +31,21 @@
 
         /* Scene Styles */
         .scene {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 0.8s ease-in-out;
-        }
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.8s ease-in-out;
+}
 
-        .scene.active {
-            opacity: 1;
-        }
+.scene.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+    
 
         /* Scene 1 - Sky Background */
         #scene1 {
@@ -488,7 +493,7 @@
                 <div style="text-align: center; font-size: clamp(20px, 4vw, 32px); color: #ff1493; font-weight: 600;">
                     Ready for a surprise?
                 </div>
-                <button class="tap-button" id="tapButton">Tap to Begin ✨</button>
+                <button type="button" class="tap-button" id="tapButton"></button>>Tap to Begin ✨</button>
             </div>
         </div>
 
@@ -590,8 +595,7 @@
                     <div class="letter-line" style="animation-delay: 0.4s;">every silly conversation,</div>
                     <div class="letter-line" style="animation-delay: 0.6s;">every memory,</div>
                     <div class="letter-line" style="animation-delay: 0.8s;">and simply for being you.</div>
-                    <div class="letter-line" style="animation-delay: 1s; margin-top: 20px;">I don't know what the future holds,</div>
-                    <div class="letter-line" style="animation-delay: 1.2s;">but I hope you'll always be</div>
+                    <div class="letter-line" style="animation-delay: 1.2s;">You'll always be</div>
                     <div class="letter-line" style="animation-delay: 1.4s;">one of my favourite people.</div>
                     <div class="letter-line" style="animation-delay: 1.6s; margin-top: 20px;">You're stuck with me forever. 🤍</div>
                 </div>
